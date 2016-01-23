@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  company: MyString
+  image: MyString
+  rating: 1
+  origin: MyString
+  flavors: MyText
+  brew_method: MyString
+  notes: MyText
+  url: MyString
+
+two:
+  name: MyString
+  company: MyString
+  image: MyString
+  rating: 1
+  origin: MyString
+  flavors: MyText
+  brew_method: MyString
+  notes: MyText
+  url: MyString

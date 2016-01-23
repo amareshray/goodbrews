@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @coffee.name %>
+</p>
+
+<p>
+  <strong>Company:</strong>
+  <%= @coffee.company %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= @coffee.image %>
+</p>
+
+<p>
+  <strong>Rating:</strong>
+  <%= @coffee.rating %>
+</p>
+
+<p>
+  <strong>Origin:</strong>
+  <%= @coffee.origin %>
+</p>
+
+<p>
+  <strong>Flavors:</strong>
+  <%= @coffee.flavors %>
+</p>
+
+<p>
+  <strong>Brew method:</strong>
+  <%= @coffee.brew_method %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @coffee.notes %>
+</p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @coffee.url %>
+</p>
+
+<%= link_to 'Edit', edit_coffee_path(@coffee) %> |
+<%= link_to 'Back', coffees_path %>

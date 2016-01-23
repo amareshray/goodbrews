@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Coffees</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Company</th>
+      <th>Image</th>
+      <th>Rating</th>
+      <th>Origin</th>
+      <th>Flavors</th>
+      <th>Brew method</th>
+      <th>Notes</th>
+      <th>Url</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @coffees.each do |coffee| %>
+      <tr>
+        <td><%= coffee.name %></td>
+        <td><%= coffee.company %></td>
+        <td><%= coffee.image %></td>
+        <td><%= coffee.rating %></td>
+        <td><%= coffee.origin %></td>
+        <td><%= coffee.flavors %></td>
+        <td><%= coffee.brew_method %></td>
+        <td><%= coffee.notes %></td>
+        <td><%= coffee.url %></td>
+        <td><%= link_to 'Show', coffee %></td>
+        <td><%= link_to 'Edit', edit_coffee_path(coffee) %></td>
+        <td><%= link_to 'Destroy', coffee, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Coffee', new_coffee_path %>
