@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @roaster.name %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= @roaster.image %>
+</p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @roaster.url %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @roaster.city %>
+</p>
+
+<p>
+  <strong>Country:</strong>
+  <%= @roaster.country %>
+</p>
+
+<%= link_to 'Edit', edit_roaster_path(@roaster) %> |
+<%= link_to 'Back', roasters_path %>
