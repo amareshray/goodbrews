@@ -5,5 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
 
-  has_many :coffees
+has_many :coffee_drinkers
+has_many :coffees, :through => :coffee_drinkers
+
 end

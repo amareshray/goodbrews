@@ -26,7 +26,7 @@ class CoffeesController < ApplicationController
   # POST /coffees
   # POST /coffees.json
   def create
-    @coffee = current_user.coffees.build(coffee_params)
+    @coffee = current_user.coffees.create(coffee_params)
     respond_to do |format|
       if @coffee.save
         format.html { redirect_to @coffee, notice: 'Coffee was successfully created.' }
@@ -70,6 +70,6 @@ class CoffeesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def coffee_params
-      params.require(:coffee).permit(:name, :company, :image, :rating, :origin, :flavors, :brew_method, :notes, :url, :user_ids => [])
+      params.require(:coffee).permit(:name, :id, :company, :image, :rating, :origin, :flavors, :brew_method, :notes, :url, :user_ids => [])
     end
 end
