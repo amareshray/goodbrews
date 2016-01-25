@@ -1,5 +1,6 @@
 class CoffeesController < ApplicationController
   before_action :set_coffee, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show]
 
   # GET /coffees
   # GET /coffees.json
@@ -14,7 +15,8 @@ class CoffeesController < ApplicationController
 
   # GET /coffees/new
   def new
-    @coffee = Coffee.new
+    @coffee = current_user.coffees.build
+
   end
 
   # GET /coffees/1/edit
@@ -24,8 +26,7 @@ class CoffeesController < ApplicationController
   # POST /coffees
   # POST /coffees.json
   def create
-    @coffee = Coffee.new(coffee_params)
-
+    @coffee = current_user.coffees.build(coffee_params)
     respond_to do |format|
       if @coffee.save
         format.html { redirect_to @coffee, notice: 'Coffee was successfully created.' }
@@ -69,6 +70,6 @@ class CoffeesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def coffee_params
-      params.require(:coffee).permit(:name, :company, :image, :rating, :origin, :flavors, :brew_method, :notes, :url)
+      params.require(:coffee).permit(:name, :company, :image, :rating, :origin, :flavors, :brew_method, :notes, :url, :user_ids => [])
     end
 end
