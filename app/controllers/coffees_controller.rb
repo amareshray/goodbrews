@@ -5,7 +5,7 @@ class CoffeesController < ApplicationController
   # GET /coffees
   # GET /coffees.json
   def index
-    @coffees = Coffee.all
+    @coffees = current_user.coffees
   end
 
   # GET /coffees/1

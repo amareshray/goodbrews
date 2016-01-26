@@ -14,6 +14,7 @@
       <th>Brew method</th>
       <th>Notes</th>
       <th>Url</th>
+      
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -31,8 +32,10 @@
         <td><%= coffee.notes %></td>
         <td><%= coffee.url %></td>
         <td><%= link_to 'Show', coffee %></td>
+        <% if coffee.users.include? current_user %>
         <td><%= link_to 'Edit', edit_coffee_path(coffee) %></td>
         <td><%= link_to 'Destroy', coffee, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end%>
       </tr>
     <% end %>
   </tbody>
