@@ -1,6 +1,7 @@
 class CoffeesController < ApplicationController
   before_action :set_coffee, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
+  before_action :correct_user, only: [:edit, :update, :destroy]
 
   # GET /coffees
   # GET /coffees.json
@@ -26,7 +27,7 @@ class CoffeesController < ApplicationController
   # POST /coffees
   # POST /coffees.json
   def create
-    @coffee = current_user.coffees.create(coffee_params)
+    @coffee = current_user.coffees.build(coffee_params)
     respond_to do |format|
       if @coffee.save
         format.html { redirect_to @coffee, notice: 'Coffee was successfully created.' }
@@ -68,6 +69,10 @@ class CoffeesController < ApplicationController
       @coffee = Coffee.find(params[:id])
     end
 
+    def correct_user
+      @coffee = current_user.coffees.find_by(id: params[:id])
+      redirect_to coffees_path, notice: "Not authorised to edit this coffee" if @coffee.nil?
+    end
     # Never trust parameters from the scary internet, only allow the white list through.
     def coffee_params
       params.require(:coffee).permit(:name, :id, :company, :image, :rating, :origin, :flavors, :brew_method, :notes, :url, :user_ids => [])
